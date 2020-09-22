@@ -9,15 +9,12 @@ var city = " ";
 
 function getCityInfo(city) {
 
-    alert("getCityInfo" + city)
+    
     var queryUrl =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&units=imperial&appid=" +
       apiKey;
-
-    // update the current weather card using the result from the search display
-    // a loading spinner so that the user knows something is happening
    
     // construct a url to search OpenWeatherAPI for the current weather in the
     // city
@@ -40,13 +37,14 @@ function getCityInfo(city) {
       // response
       $("#city-name").text(data.name + " Weather");
       
-            // display the temperature, wind, and humidity in the elements found in
-      // the html. (set the text)
-      $(".card-text").text(" ");
-    //   $("#temp").text(data.main.temp + "°");
-    //   $("#wind").text(data.wind.speed + " mph");
-    //   $("#humidity").text(data.main.humidity + " %");
-
+        // display the temperature, wind, and humidity 
+        var tempDiv = $("<p>").attr("class", "card-text").text("Temperature: " + data.main.temp + " °F");
+         
+        var humidityDiv = $("<p>").attr("class", "card-text").text("Humidity: "+ data.main.humidity + "%");
+    
+        var windDiv = $("<p>").attr("class", "card-text").text("Wind Speed: " +data.wind.speed + " MPH");
+       
+        
       // create url for weather icon and save it in a variable
       var iconUrl =
         "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
@@ -56,15 +54,43 @@ function getCityInfo(city) {
         src: iconUrl,
         alt: data.weather[0].description,
       });
-      // empty div #weather-icon and append the weather icon
-      $("#weather-icon").empty().append(iconImg);
+      // empty div #weather-icon and append the current weather
+//    $("#weather-icon").empty().append(iconImg,tempDiv,humidityDiv,windDiv);
+ 
+   
+// // construct a url to search OpenWeatherAPI for UV index
+      var queryUrl =
+      "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+      data.coord.lat +
+      "&lon=" +
+      data.coord.lon +
+      "&appid=" +
+      apiKey;
       
-      // display the temperature, wind, and humidity in the elements found in
-      // the html. (set the text)
-    //   $("#temp").text(data.main.temp + "°");
-    //   $("#wind").text(data.wind.speed + " mph");
-    //   $("#humidity").text(data.main.humidity + " %");
+      console.log(queryUrl)
 
+    // send ajax request for UV index to OpenWeatherAPI
+    $.ajax({
+      url: queryUrl,
+      method: "GET",
+    }).then(function (data2) {
+      // log the data from the api to the console
+      console.log(data2);
+      
+     if (parseInt(data2.value) < 3 ){
+      uvDiv = $("<p>").attr("class", "card-text text-success").text("UV Index: " + data2.value); 
+      } else if (parseInt(data2.value) >= 6 ){
+      uvDiv = $("<p>").attr("class", "card-text text-danger").text("UV Index: " + data2.value); 
+      } else {
+      uvDiv = $("<p>").attr("class", "card-text text-warning").text("UV Index: " + data2.value); 
+      };
+      // date
+      $("#weather-icon").empty().append(iconImg,tempDiv,humidityDiv,windDiv,uvDiv);
+      // set the text of the #city-name h2 element using the city name in the
+      // response
+    //   $("#city-name").text(data.index + " Weather");
+    });
+      
     });
 };
 

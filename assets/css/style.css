@@ -17,9 +17,9 @@
   position: relative;
 }
 
-#weather-icon {
+/*#weather-icon {
   height: 3.5rem;
-}
+}*/
 
 #weather-icon>img {
   height: 100%;
