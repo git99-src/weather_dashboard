@@ -15,34 +15,44 @@
 
 
 <body>
-  
-<nav class="navbar navbar-dark bg-dark">
-  <span class="navbar-brand mb-0 h1 mx-auto">Weather Dashboard</span>
-</nav>
+
   <main class="container p-3">
+    <nav class="navbar navbar-dark bg-dark">
+      <span class="navbar-brand mb-0 h1 mx-auto">Weather Dashboard</span>
+    </nav>
     <div class="row">
       <div class="col-md-4">
         <div class="card bg-light mb-3" style="max-width: 25rem;">
           <div class="card-header">
             <form class="form-inline">
-              <input class="form-control mr-sm-2" id = "city-input" type="search" placeholder="Enter City" aria-label="Search">
+              <label for="search-input">Search for a city</label>
+              <input class="form-control mr-sm-2" id="city-input" type="search" placeholder="Enter City"
+                aria-label="Search">
               <button class="btn btn-primary my-2 my-sm-0 city-search" type="submit">Search</button>
             </form>
           </div>
           <div class="card-body">
-              <form id = "city-form">
-                <div id = "city-view">
-                <!-- put city buttons here  --> 
-                </div>
-              </form>
-          </div>  
+            <form id="city-form">
+              <div id="city-view">
+                <!-- put city buttons here  -->
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div class="col-md-8">
         <div class="row">
           <div class=col-md>
-           <!-- current weather data here  --> 
-           Display current weather here
+            <div class="card weather-card mb-3">
+              <div class="card-body">
+                <h2 id="city-name" class="card-title h4">Choose City</h2>
+                <hr class="border-top border-light">
+                <div id="weather-icon"></div>
+                <p class="card-text">Current Temp (F): <span id="temp">-</span></p>
+                <p class="card-text">Wind: <span id="wind">-</span></p>
+                <p class="card-text">Humidity: <span id="humidity">-</span></p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -51,27 +61,27 @@
               <h3>5 Day Forecast</h3>
             </div>
             <div class="row">
-            <!-- 5 day weather data here  --> 
-              <div class="card">
+              <!-- 5 day weather data here  -->
+              <div class="card mt-3 bg-primary text-light">
                 <div class="card-body">Day One</div>
-              </div>  
-              <div class="card">
+              </div>
+              <div class="card mt-3 bg-primary text-light">
                 <div class="card-body">Day Two</div>
-              </div> 
-              <div class="card">
+              </div>
+              <div class="card mt-3 bg-primary text-light">
                 <div class="card-body">Day Three</div>
-              </div>   
-              <div class="card">
+              </div>
+              <div class="card mt-3 bg-primary text-light">
                 <div class="card-body">Day Four</div>
-              </div> 
-              <div class="card">
+              </div>
+              <div class="card mt-3 bg-primary text-light">
                 <div class="card-body">Day Five</div>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   </main>
 
 
@@ -89,7 +99,7 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/js/script.js"></script>
- 
+
 
 
 

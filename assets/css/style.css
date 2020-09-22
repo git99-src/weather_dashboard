@@ -11,7 +11,17 @@
     border-bottom: none; /* Prevent double borders */
   }
   
-  /* Add a background color on hover */
-  .btn-group button:hover {
-    background-color: #3e8e41;
-  }
+  /* weather-card positioned so that the spinner may be absolutely positioned
+   relative to this weather-card */
+.weather-card {
+  position: relative;
+}
+
+#weather-icon {
+  height: 3.5rem;
+}
+
+#weather-icon>img {
+  height: 100%;
+}
+  
