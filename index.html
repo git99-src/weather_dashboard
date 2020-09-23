@@ -12,10 +12,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Weather Dashboard</title>
 </head>
-
-
 <body>
-
   <main class="container p-3">
     <nav class="navbar navbar-dark bg-dark">
       <span class="navbar-brand mb-0 h1 mx-auto">Weather Dashboard</span>
@@ -48,13 +45,6 @@
                 <h2 id="city-name" class="card-title h4"></h2>
                 <hr class="border-top border-light">
                 <div id="weather-icon"></div>
-              
-                <!-- Current weather data here  
-                  <p class= "card-text">Humidity 41%</p>
-                  <p class= "card-text">Temperature 98</p>
-                  <p class= "card-text">Wind Speed 4.7</p>-->
-
-               
               </div>
             </div>
           </div>
@@ -66,20 +56,7 @@
             </div>
             <div class="row">
               <!-- 5 day weather data here  -->
-              <div class="card mt-3 bg-primary text-light">
-                <div class="card-body">Day One</div>
-              </div>
-              <div class="card mt-3 bg-primary text-light">
-                <div class="card-body">Day Two</div>
-              </div>
-              <div class="card mt-3 bg-primary text-light">
-                <div class="card-body">Day Three</div>
-              </div>
-              <div class="card mt-3 bg-primary text-light">
-                <div class="card-body">Day Four</div>
-              </div>
-              <div class="card mt-3 bg-primary text-light">
-                <div class="card-body">Day Five</div>
+              <div class="row" id="card-5day">
               </div>
             </div>
           </div>
@@ -87,26 +64,11 @@
       </div>
     </div>
   </main>
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="assets/js/script.js"></script>
-
-
-
-
 </body>
 
 </html>
+

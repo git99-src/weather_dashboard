@@ -58,7 +58,7 @@ function getCityInfo(city) {
 //    $("#weather-icon").empty().append(iconImg,tempDiv,humidityDiv,windDiv);
  
    
-// // construct a url to search OpenWeatherAPI for UV index
+  // construct a url to search OpenWeatherAPI for UV index
       var queryUrl =
       "http://api.openweathermap.org/data/2.5/uvi?lat=" +
       data.coord.lat +
@@ -67,8 +67,7 @@ function getCityInfo(city) {
       "&appid=" +
       apiKey;
       
-      console.log(queryUrl)
-
+    
     // send ajax request for UV index to OpenWeatherAPI
     $.ajax({
       url: queryUrl,
@@ -89,9 +88,53 @@ function getCityInfo(city) {
       // set the text of the #city-name h2 element using the city name in the
       // response
     //   $("#city-name").text(data.index + " Weather");
+    getFiveDay(city);
+      
     });
       
     });
+};
+
+
+function getFiveDay(city){
+  var queryUrl =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&units=imperial&appid=" +
+    apiKey;
+  // send ajax request for UV index to OpenWeatherAPI
+  $.ajax({
+  url: queryUrl,
+  method: "GET",
+  }).then(function (data3) {
+  // log the data from the api to the console
+  console.log(data3);
+
+  // grab a reference to the card container
+  var cardContainer = $("#card-5day");
+
+  cardContainer.empty();
+
+  for (i = 0; i < 35; i+=7) {
+
+
+    var cardTitle = $("<h5>").text(data3.list[i].dt).addClass("card-title");
+    var cardBody = $("<div class='card bg-primary text-light'></div>");
+    cardBody.append(cardTitle);
+    var temp5Div = $("<p>").attr("class", "card-text").text("Temp: " + data3.list[i].main.temp + " °F");
+    var humidity5Div = $("<p>").attr("class", "card-text").text("Humidity: " + data3.list[i].main.humidity + "%");
+    var card = $("<div class='card bg-primary text-light'></div>");
+    card.append(cardBody, temp5Div, humidity5Div);
+    var col = $("<div class='col'></div>");
+    col.append(card);
+    cardContainer.append(col);
+
+
+  };
+
+  });
+  
+
 };
 
 function loadCity(){
@@ -159,4 +202,3 @@ function loadCity(){
     });
 
     loadCity();
-
