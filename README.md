@@ -5,6 +5,8 @@ https://git99-src.github.io/weather_dashboard/
 
 ## Description
 
+![picture of weather dashboard app](weather_dashboard.PNG)
+
 This calendar application will be useful for those who wish to plan a trip.  The user will be presented with a search prompt which they can use to enter a city that they wish to check the weather.  The current weather information will then be presented as well as the 5 day forecast. The weather information includes - temperature, wind speed, humidity and UV index. 
 
 

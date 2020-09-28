@@ -41,7 +41,7 @@ function getCityInfo(city) {
 
     // create url for weather icon and save it in a variable
     var iconUrl =
-      "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+      "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
 
     // create an img element and set its src equal to the icon url.
     var iconImg = $("<img>").attr({
@@ -54,7 +54,7 @@ function getCityInfo(city) {
 
     // construct a url to search OpenWeatherAPI for UV index
     var queryUrl =
-      "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+      "https://api.openweathermap.org/data/2.5/uvi?lat=" +
       data.coord.lat +
       "&lon=" +
       data.coord.lon +
